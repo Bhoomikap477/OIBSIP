@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $(".c3").click(function () {
+          // Update content in the .c2 div
+          $(".c2").html(`
+                  <h2>
+                    Sudha Murty was born to a Kannada-speaking family on 19 August 1950 in Shiggaon, Haveri in Karnataka, India, the daughter of R. H. Kulkarni, a surgeon, and his wife Vimala Kulkarni, a school teacher. She was raised by her parents and maternal grandparents. These childhood experiences form the historical basis for her first notable work entitled How I Taught My Grandmother to Read, Wise and Otherwise and Other Stories.Murty completed a BEng in Electrical and Electronics Engineering from the B.V.B. College of Engineering & Technology (now known as KLE Technological University), and then a MEng in Computer Science from the Indian Institute of Science
+                  </h2>
+                `);
+          // Update h1 content
+          $("h1").html("Early life and education");
+
+          // Apply CSS styles to .c1
+          $(".c1").css({
+            margin: "60px 0px",
+            "font-size": "20px",
+            "padding-left": "100px",
+          });
+
+          // Apply CSS styles to .c2
+          $(".c2").css({
+            "padding-left": "100px",
+            width: "1100px",
+            height: "200px",
+            "margin-top": "50px",
+          });
+
+          // Update content and apply CSS styles to .c3
+          $(".c3").html(`<div class='next'>Career and Personal life</div>`);
+          $(".c3").css({
+            "margin-left": "950px",
+            "margin-top": "200px",
+            "margin-right": "400px",
+            "margin-bottom": "150px",
+            "text-align": "center",
+          });
+
+          // Show elements with classes .c4, .c5, .c6
+          $(".c4, .c5, .c6").css("display", "block");
+
+          // Apply background images to .c4, .c5, .c6
+          $(".c4").css(
+            "background-image",
+            "linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),url('An-Old-Picture-of-Sudha-Murthy-and-N.webp')"
+          );
+          $(".c5").css(
+            "background-image",
+            "linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)),url('bvb.jpg')"
+          );
+          $(".c6").css(
+            "background-image",
+            "linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),url('oldSudha.jpg')"
+          );
+
+          // Apply background size to body
+          $("body").css("background-size", "cover");
+        });
+
+        $(document).on("click", ".next", function () {
+          $("body").css(
+            "background-image",
+            "linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('sudamurty.webp')"
+          );
+          $(".three").html(`<h2>Achievements and Rewards</h2>
+                <h3>2004: Raja-Lakshmi Award by Sri Raja-Lakshmi Foundation in Chennai<br/>
+      2006: India's fourth highest civilian award Padma Shri<br/>
+      2006:  R.K. Narayana's Award for Literature.<br/>
+      2010: Daana Chintamani Attimabbe Award by Karnataka Government.<br/>
+
+      2013: Basava Shree-2013 Award<br/>
+      2018: Murty received the Crossword Book award .<br/>
+      2019: IIT Kanpur awarded her Honorary Degree .<br/>
+      2023: Padma Bhushan by the Government of India<br/>
+      2023: Sahitya Akademi Bal Sahitya Puraskar.<br/>
+      </h3>`);
+
+          $(
+            ".one"
+          ).html(`<h2>Career</h2> <h3 >Sudha Murty's career is marked by groundbreaking achievements and profound contributions. As the first female engineer at TATA Engineering and Locomotive Company (TELCO), she challenged gender biases by addressing the "men only" culture, securing her position through a special interview. Transitioning to the Walchand Group of Industries, she continued to excel as a Senior Systems Analyst. In 1996, she founded the Infosys Foundation, shaping it into a bastion of social change and education. Alongside her philanthropic endeavors, Sudha Murty is a prolific author, renowned for her diverse literary works spanning novels, non-fiction, travelogues, and technical books. Her influence extends beyond literature, with her contributions to education and societal progress leaving an indelible mark on Indian society.</h3>
+                `);
+
+          $(
+            ".two"
+          ).html(`<h2>Personl Life</h2><h3>Sudha Murty married N. R. Narayana Murthy while employed as an engineer at TELCO in Pune. The couple have two children, including fashion designer Akshata Murty, who is married to the British Prime Minister Rishi Sunak.
+                Her siblings include Caltech astrophysicist Shrinivas Kulkarni and Jaishree Deshpande (wife of Gururaj Deshpande) who co-founded the Deshpande Center for Technological Innovation at MIT.</h3>`);
+
+          $(".c1").html("");
+
+          $(document).ready(function () {
+            $(".one").css({
+              cursor: "pointer",
+              margin: "0px 10px",
+              padding: "10px 80px",
+              color: "white",
+              "border-radius": "5px",
+              border: "2px double white",
+              "background-color": "rgba(19, 20, 20,0.4)",
+              "font-family": "cursive",
+              "font-size": "22px",
+              "text-align": "justify",
+            });
+
+            $(".two").css({
+              cursor: "pointer",
+              margin: "0px 10px",
+              padding: "10px 70px",
+              color: "white",
+              "border-radius": "5px",
+              border: "2px double white",
+              "background-color": "rgba(19, 20, 20,0.4)",
+              "font-family": "cursive",
+              "font-size": "22px",
+              "text-align": "justify",
+            });
+            $(".three").css({
+              cursor: "pointer",
+              margin: "0px 10px",
+              padding: "10px 70px",
+              color: "white",
+              "border-radius": "5px",
+              border: "2px double white",
+              "background-color": "rgba(19, 20, 20,0.4)",
+              "font-family": "cursive",
+              "font-size": "22px",
+              "text-align": "justify",
+            });
+          });
+
+          $(".c4").css("display", "none");
+          $(".c2").css("display", "none");
+          $(".c5").css("display", "none");
+          $(".c6").css("display", "none");
+        });
+      });
+    </script>
+
+    <style>
+      .all {
+        display: flex;
+        overflow: hidden;
+      }
+      .second {
+        display: block;
+
+        justify-content: space-around;
+      }
+
+      .c4,
+      .c5,
+      .c6 {
+        width: 400px;
+        height: 250px;
+        background-size: cover;
+        display: none;
+        margin-top: 50px;
+
+        border: 2px double black;
+        box-shadow: 10px 10px 10px black;
+        box-sizing: border-box;
+      }
+
+      .c4:hover,
+      .c5:hover,
+      .c6:hover {
+        filter: brightness(140%);
+      }
+
+      .c4 {
+        animation: slideDown 2s forwards;
+      }
+
+      .c5 {
+        animation: slideLeft 2s forwards;
+      }
+
+      .c6 {
+        animation: slideUp 2s forwards;
+      }
+
+      @keyframes slideDown {
+        from {
+          transform: translateY(-100%);
+        }
+        to {
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes slideLeft {
+        from {
+          transform: translateX(100%);
+        }
+        to {
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes slideUp {
+        from {
+          transform: translateY(100%);
+        }
+        to {
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes slideIn {
+        0% {
+          opacity: 0;
+          transform: translateY(-100%);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .one,
+      .two,
+      .c3,
+      .three {
+        opacity: 0;
+        animation: slideIn 3s forwards;
+      }
+
+      .one {
+        animation-delay: 6s;
+      }
+
+      .two {
+        animation-delay: 7s;
+      }
+
+      .c3 {
+        animation-delay: 1s;
+      }
+
+      .three {
+        animation-delay: 8s;
+      }
+      .con {
+        display: flex;
+      }
+
+      .one,
+      .two,
+      .three {
+        width: 500px;
+        box-shadow: 10px 10px 10px rgb(31, 30, 30);
+      }
+
+      #edit,
+      #delete {
+        width: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="all">
+      <div class="first">
+        <div class="c1">
+          <h1>Sudha Murthy</h1>
+        </div>
+        <div class="c2">
+          <h2>
+            Sudha Murty, born on August 19, 1950, is an Indian educator, author,
+            and philanthropist. Co-founder of the Infosys Foundation and wife of
+            N. R. Narayana Murty, she is renowned for her social work, receiving
+            the Padma Shri in 2006 and the Padma Bhushan in 2023. Murty's career
+            spans computer science and public health initiatives with the Gates
+            Foundation. She is recognized for founding orphanages, promoting
+            rural development, and advocating for education in Karnataka
+            schools. Additionally, she established the Murty Classical Library
+            of India at Harvard University, aimed at preserving Indian literary
+            heritage. Murty's literary contributions in Kannada and English,
+            including novels like "Dollar Bahu" and stories like "Runa," have
+            inspired both television series and films. Beyond her writing, she
+            has acted in films such as "Pitruroon" and "Prarthana." Her life
+            reflects a profound commitment to philanthropy, literature, and
+            societal advancement, making her a beacon of inspiration for many.
+          </h2>
+        </div>
+        <div class="con">
+          <div class="one"></div>
+          <div class="two"></div>
+          <div class="three"></div>
+        </div>
+
+        <div class="c3">Early life and education</div>
+      </div>
+
+      <div class="second">
+        <div class="c4"></div>
+        <div class="c5"></div>
+        <div class="c6"></div>
+      </div>
+    </div>
+  </body>
+</html>

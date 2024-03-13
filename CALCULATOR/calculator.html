@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: rgb(216, 212, 212);
+      }
+      .container {
+        width: 880px;
+        padding: 20px;
+        border: 3px solid rgb(244, 180, 180);
+        background-color: rgb(52, 17, 17);
+        border-radius: 5px;
+        box-sizing: content-box;
+
+        margin-top: 200px;
+      }
+      button {
+        width: 119px;
+        padding: 10px;
+        margin-left: 10px;
+        height: 60px;
+        margin-bottom: 20px;
+        font-size: 23px;
+        background-color: rgb(33, 34, 34);
+        transition: all 0.3s ease;
+        border-radius: 10% 20%;
+        border: 0.5px solid rgb(171, 169, 169);
+        box-shadow: 10px 10px 5px rgb(83, 51, 51);
+        color: rgb(232, 150, 150);
+        font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+          "Lucida Sans", Arial, sans-serif;
+      }
+
+      button:hover {
+        transform: scale(1.1);
+        color: rgb(132, 127, 127);
+      }
+      .con {
+        width: 100%;
+      }
+
+      input {
+        width: 98%;
+        margin-bottom: 10px;
+        height: 65px;
+        border-radius: 5px;
+        background-color: rgb(184, 186, 186);
+        box-shadow: 10px 10px 5px rgb(80, 45, 45);
+        color: rgb(64, 31, 31);
+        font-size: 30px;
+        text-align: center;
+        border: 1px solid rgb(247, 184, 184);
+      }
+      #first {
+        margin-top: 40px;
+      }
+
+      .inside1,
+      .inside2 {
+        padding: 20px;
+        box-shadow: 10px 10px 5px rgb(80, 45, 45);
+        border-radius: 5px;
+      }
+
+      #del,
+      #plus,
+      #minus,
+      #multi,
+      #devide,
+      #equal,
+      #clr {
+        background-color: rgb(6, 6, 6);
+      }
+
+      #clr:hover {
+        color: white;
+      }
+      #del:hover {
+        color: white;
+      }
+      #plus:hover {
+        color: white;
+      }
+      #minus:hover {
+        color: white;
+      }
+      #multi:hover {
+        color: white;
+      }
+      #devide:hover {
+        color: white;
+      }
+      #equal:hover {
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <center>
+      <div class="container">
+        <div class="inside1">
+          <div class="inside2">
+            <input type="text" id="display" />
+
+            <div class="con" id="first">
+              <!-- Buttons for basic operations -->
+              <button
+                class="b"
+                onclick="currentDisplay = currentDisplay +'Math.sqrt(';document.querySelector('#display').value = currentDisplay;"
+              >
+                √
+              </button>
+
+              <button
+                class="b"
+                onclick="currentDisplay += '(';document.querySelector('#display').value = currentDisplay;"
+              >
+                (
+              </button>
+              <button
+                class="b"
+                onclick="currentDisplay += ')';document.querySelector('#display').value = currentDisplay;"
+              >
+                )
+              </button>
+              <button
+                class="b"
+                onclick="currentDisplay += '%';document.querySelector('#display').value = currentDisplay;"
+              >
+                %
+              </button>
+              <button class="b" id="del" onclick="deleteLast()">DEL</button>
+              <button
+                class="b"
+                id="clr"
+                onclick="currentDisplay = '';document.querySelector('#display').value = currentDisplay;"
+              >
+                CLR
+              </button>
+            </div>
+
+            <div class="con">
+              <button
+                class="b"
+                onclick="currentDisplay = currentDisplay*currentDisplay*currentDisplay;
+        document.querySelector('#display').value = currentDisplay;
+        "
+              >
+                x³
+              </button>
+              <button class="b" onclick="calculate()">lan</button>
+
+              <button
+                class="b"
+                onclick="currentDisplay = currentDisplay+'7';
+        document.querySelector('#display').value = currentDisplay;
+        "
+              >
+                7
+              </button>
+              <button
+                class="b"
+                onclick="currentDisplay = currentDisplay+'8';
+        document.querySelector('#display').value = currentDisplay;
+        "
+              >
+                8
+              </button>
+              <button
+                class="b"
+                onclick="currentDisplay = currentDisplay+'9';
+        document.querySelector('#display').value = currentDisplay;
+        "
+              >
+                9
+              </button>
+              <button
+                class="b"
+                id="devide"
+                onclick="currentDisplay = currentDisplay+'/';
+        document.querySelector('#display').value = currentDisplay;
+        "
+              >
+                /
+              </button>
+            </div>
+
+            <div class="con">
+              <button
+                class="b"
+                onclick="currentDisplay = currentDisplay + 'Math.PI';
+                document.querySelector('#display').value = currentDisplay;"
+              >
+                π
+              </button>
+
+              <button
+                class="b"
+                onclick="currentDisplay = currentDisplay + 'Math.log10(';
+                document.querySelector('#display').value = currentDisplay;"
+              >
+                log
+              </button>
+              <button
+                class="b"
+                onclick="currentDisplay = currentDisplay+'4';
+        document.querySelector('#display').value = currentDisplay;
+        "
+              >
+                4
+              </button>
+              <button
+                class="b"
+                onclick="currentDisplay = currentDisplay+'5';
+        document.querySelector('#display').value = currentDisplay;
+        "
+              >
+                5
+              </button>
+              <button
+                class="b"
+                onclick="currentDisplay = currentDisplay+'6';
+        document.querySelector('#display').value = currentDisplay;
+        "
+              >
+                6
+              </button>
+              <button
+                class="b"
+                id="multi"
+                onclick="currentDisplay = currentDisplay+'*';
+        document.querySelector('#display').value = currentDisplay;
+        "
+              >
+                *
+              </button>
+            </div>
+
+            <div class="con">
+              <button
+                class="b"
+                onclick="currentDisplay = currentDisplay + 'Math.E';
+                document.querySelector('#display').value = currentDisplay;"
+              >
+                e
+              </button>
+
+              <button
+                class="b"
+                onclick="currentDisplay += 'Math.pow(';document.querySelector('#display').value = currentDisplay;"
+              >
+                ^
+              </button>
+              <button
+                class="b"
+                onclick="currentDisplay = currentDisplay+'3';
+        document.querySelector('#display').value = currentDisplay;
+        "
+              >
+                3
+              </button>
+              <button
+                class="b"
+                onclick="currentDisplay = currentDisplay+'2';
+        document.querySelector('#display').value = currentDisplay;
+        "
+              >
+                2
+              </button>
+              <button
+                class="b"
+                onclick="currentDisplay = currentDisplay+'1';
+        document.querySelector('#display').value = currentDisplay;
+        "
+              >
+                1
+              </button>
+              <button
+                class="b"
+                id="minus"
+                onclick="currentDisplay = currentDisplay+'-';
+        document.querySelector('#display').value = currentDisplay;
+        "
+              >
+                -
+              </button>
+            </div>
+
+            <div class="con">
+              <button
+                class="b"
+                onclick="currentDisplay = currentDisplay*currentDisplay;
+        document.querySelector('#display').value = currentDisplay;
+        "
+              >
+                x²
+              </button>
+              <button class="b" onclick="addPower()">x^</button>
+              <button
+                class="b"
+                onclick="currentDisplay = currentDisplay+'.';
+        document.querySelector('#display').value = currentDisplay;
+        "
+              >
+                .
+              </button>
+              <button
+                class="b"
+                onclick="currentDisplay = currentDisplay+'0';
+        document.querySelector('#display').value = currentDisplay;
+        "
+              >
+                0
+              </button>
+              <button
+                class="b"
+                id="equal"
+                onclick="
+          let result = eval(currentDisplay)
+          currentDisplay=result;
+          currentDisplay = currentDisplay;
+        document.querySelector('#display').value = currentDisplay;
+        "
+              >
+                =
+              </button>
+              <button
+                class="b"
+                id="plus"
+                onclick="currentDisplay = currentDisplay+'+';
+        document.querySelector('#display').value = currentDisplay;
+        "
+              >
+                +
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </center>
+    <script>
+      let currentDisplay = "";
+
+      function updateDisplay(value) {
+        currentDisplay += value;
+        document.querySelector("#display").value = currentDisplay;
+      }
+
+      function calculate() {
+        let result;
+        try {
+          result = eval(currentDisplay);
+          currentDisplay = result.toString();
+          document.querySelector("#display").value = currentDisplay;
+        } catch (error) {
+          currentDisplay = "Error";
+          document.querySelector("#display").value = currentDisplay;
+        }
+      }
+
+      // Function to convert degrees to radians
+      function toRadians(degrees) {
+        return degrees * (Math.PI / 180);
+      }
+
+      function calculate() {
+        // Get the current value from the display
+        var currentDisplay = document.querySelector("#display").value;
+
+        if (!isNaN(parseFloat(currentDisplay)) && isFinite(currentDisplay)) {
+          var result = Math.log10(parseFloat(currentDisplay));
+
+          result *= 2.303;
+
+          document.querySelector("#display").value = result;
+        } else {
+          alert("Invalid input. Please enter a valid number.");
+        }
+      }
+
+      function addPower() {
+        // Get the current value from the display
+        var currentDisplay = document.querySelector("#display").value;
+
+        // Find the index of the first occurrence of a non-digit character
+        var indexOfOperator = currentDisplay.search(/\D/);
+
+        // If an operator is found, split the string into base and exponent parts
+        if (indexOfOperator !== -1) {
+          var base = currentDisplay.substring(0, indexOfOperator).trim();
+          var exponent = currentDisplay.substring(indexOfOperator + 1).trim();
+
+          // If both base and exponent are valid numbers, perform the power operation
+          if (!isNaN(parseFloat(base)) && !isNaN(parseFloat(exponent))) {
+            var result = Math.pow(parseFloat(base), parseFloat(exponent));
+            document.querySelector("#display").value = result;
+          } else {
+            // Handle cases where either base or exponent is not a valid number
+            alert("Please enter valid numbers for the base and exponent.s");
+          }
+        } else {
+          // Handle cases where no operator is found in the input
+          alert('Please enter an expression in the format "base ^ exponent".');
+        }
+      }
+
+      function deleteLast() {
+        // Get the current value from the display
+        var currentDisplay = document.querySelector("#display").value;
+
+        // Check if there's anything to delete
+        if (currentDisplay.length > 0) {
+          // Remove the last character from the display
+          currentDisplay = currentDisplay.slice(0, -1);
+
+          // Update the display with the new value
+          document.querySelector("#display").value = currentDisplay;
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List Web App</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+          "Lucida Sans", Arial, sans-serif;
+        box-sizing: border-box;
+        font-size: 25px;
+        color: white;
+      }
+
+      body {
+        background-image: url("todoback.avif");
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .container {
+        padding: 10px;
+        display: flex;
+        min-height: 100vh;
+      }
+
+      .to-do,
+      .to-do2 {
+        width: 100%;
+
+        background-image: linear-gradient(
+          rgba(39, 2, 59, 0.461),
+          rgba(39, 2, 59, 0.461),
+          rgba(0, 0, 0, 0.1)
+        );
+        margin: 50px;
+        padding: 50px;
+        border-radius: 25px;
+        box-shadow: 10px 10px 20px rgb(29, 29, 29);
+      }
+
+      .to-do2 h2,
+      .to-do h2 {
+        color: #011a41;
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 20px;
+        font-size: 38px;
+      }
+
+      .to-do h2 img {
+        width: 45px;
+        margin-left: 15px;
+      }
+
+      .row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #edeef0;
+        border-radius: 30px;
+        padding-left: 20px;
+        margin: 25px 0px;
+      }
+
+      input {
+        flex: 1;
+        border: none;
+        outline: none;
+        background: transparent;
+        padding: 10px;
+        color: #011a41;
+      }
+
+      button {
+        border: none;
+        outline: none;
+        padding: 16px 50px;
+        background: #011a41;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 20px;
+      }
+
+      ul li {
+        list-style: none;
+        font-size: 17px;
+        padding: 12px 8px 12px 50px;
+        user-select: none;
+        cursor: pointer;
+        position: relative;
+      }
+
+      ul li::before {
+        content: "";
+        position: absolute;
+        height: 28px;
+        width: 28px;
+        border-radius: 50%;
+        background-image: url(unchecked.png);
+        background-size: cover;
+        background-position: center;
+        top: 12px;
+        left: 8px;
+      }
+
+      ul li.checked {
+        color: #555;
+        text-decoration: line-through;
+      }
+
+      ul li.checked::before {
+        background-image: url(checked.png);
+      }
+
+      ul li span {
+        position: absolute;
+        right: 0;
+        top: 5px;
+        width: 40px;
+        height: 40px;
+        font-size: 22px;
+        color: #0a0a0a;
+        line-height: 40px;
+        text-align: center;
+        border-radius: 50%;
+      }
+
+      ul li span:hover {
+        background: #edeef0;
+      }
+
+      .edit-icon {
+        position: absolute;
+        right: 40px;
+        top: 5px;
+        width: 20px;
+        height: 20px;
+        background-image: url("edit-icon.png");
+        background-size: cover;
+        background-position: center;
+        cursor: pointer;
+      }
+      hr {
+        width: 100%;
+        height: 3px;
+        border-radius: 50%;
+
+        background-color: white;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="to-do">
+        <h2>To-Do List <img src="icon.png" alt="icon" /></h2>
+        <hr />
+        <div class="row">
+          <input type="text" id="input-box" placeholder="Enter the task" />
+          <button onclick="addTask()">Add</button>
+        </div>
+        <ul id="list"></ul>
+      </div>
+      <div class="to-do2">
+        <h2>Completed Tasks</h2>
+        <hr />
+        <ul id="list2"></ul>
+        <br />
+        <br />
+        <h2>Pending Tasks</h2>
+        <hr />
+        <ul id="list3"></ul>
+      </div>
+    </div>
+
+    <script>
+      const inputBox = document.getElementById("input-box");
+      const listCont = document.getElementById("list");
+      const list2 = document.getElementById("list2");
+      const list3 = document.getElementById("list3");
+
+      function addTask() {
+        if (inputBox.value == "") {
+          alert("You must enter a task!");
+        } else {
+          let li = document.createElement("li");
+
+          let taskText = document.createElement("div");
+          taskText.innerHTML = inputBox.value;
+          taskText.classList.add("task-text");
+          li.appendChild(taskText);
+
+          let editIcon = document.createElement("span");
+          editIcon.innerHTML = "&#9998;";
+          editIcon.classList.add("edit-icon");
+          li.appendChild(editIcon);
+
+          listCont.appendChild(li);
+
+          let liPending = li.cloneNode(true);
+          list3.appendChild(liPending);
+
+          li.addEventListener("click", function () {
+            li.classList.toggle("checked");
+            if (li.classList.contains("checked")) {
+              list2.appendChild(li);
+              list3.removeChild(liPending);
+            } else {
+              list3.appendChild(liPending);
+              list2.removeChild(li);
+            }
+            saveData();
+          });
+
+          let span = document.createElement("span");
+          span.innerHTML = "\u00d7";
+          li.appendChild(span);
+
+          span.addEventListener("click", function (e) {
+            e.stopPropagation();
+            li.remove();
+            liPending.remove();
+            saveData();
+          });
+
+          let spanPending = document.createElement("span");
+          spanPending.innerHTML = "\u00d7";
+          liPending.appendChild(spanPending);
+
+          spanPending.addEventListener("click", function (e) {
+            e.stopPropagation();
+            liPending.remove();
+            saveData();
+          });
+
+          taskText.addEventListener("dblclick", function () {
+            let updatedTask = prompt("Edit the task:", taskText.innerText);
+            if (updatedTask !== null) {
+              taskText.innerHTML = updatedTask;
+              liPending.querySelector(".task-text").textContent = updatedTask;
+              saveData();
+            }
+          });
+
+          editIcon.addEventListener("click", function (e) {
+            e.stopPropagation();
+            let updatedTask = prompt("Edit the task:", taskText.innerText);
+            if (updatedTask !== null) {
+              taskText.innerHTML = updatedTask;
+              liPending.querySelector(".task-text").textContent = updatedTask;
+              saveData();
+            }
+          });
+        }
+        inputBox.value = "";
+        saveData();
+      }
+
+      script.js;
+    </script>
+  </body>
+</html>
